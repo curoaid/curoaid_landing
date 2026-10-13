@@ -47,7 +47,7 @@ const services = [
             "Expert wound care and dressing services to support safe and effective healing at home.",
         image: imgWoundCare,
         icon: imgPhysioIcon,
-        link: "/wound-care--at-home",
+        link: "/wound-care-at-home",
     },
     {
         title: "ELDER CARE",

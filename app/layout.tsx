@@ -68,6 +68,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { BookingProvider } from "./components/booking/bookingprovider";
 import { imgDoctorAtHome } from "@/lib/assets";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -84,6 +85,9 @@ export const metadata: Metadata = {
   description:
     "Get trusted healthcare at home with CuroAid. Book home doctor visits, nursing, physiotherapy, elder care, wound care and more at your convenience.",
   metadataBase: new URL("https://curoaid.com"),
+  verification: {
+    google: "KRIGS0WeU2OPpGfzttRJeHCkEBKjZ3muAGovdNfjTGk",
+  },
   alternates: {
     canonical: "/",
   },
@@ -121,6 +125,7 @@ export default function RootLayout({
 
           {children}
         </BookingProvider>
+        <GoogleAnalytics gaId="G-H7NWGY6RRY" />
       </body>
     </html>
   );

@@ -562,8 +562,8 @@ export default function Navbar() {
                         </Link>
 
                         {/* Contact */}
-                        <Link
-                            href="/contact"
+                        <div
+                           
                             role="menuitem"
                             onClick={closeMobileMenu}
                             className="flex items-center text-[16px] font-medium leading-6 text-[#3f4847] transition-colors hover:text-[#4cc6f0]"
@@ -572,7 +572,7 @@ export default function Navbar() {
                                 className="px-4 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm"
                                 label="Book Now"
                             />
-                        </Link>
+                        </div>
                     </div>
                 </div>
             )}

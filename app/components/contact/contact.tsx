@@ -16,7 +16,7 @@ import Footer from "../home/Footer";
 function ContactInfo() {
     return (
         <div className="contact-info">
-            
+
             <span className="section-label">
                 WE'RE HERE TO HELP
             </span>
@@ -146,38 +146,69 @@ function ContactTestimonials() {
 }
 function ContactForm() {
     const [loading, setLoading] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
 
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
 
+        if (loading) return;
+
+        const form = event.currentTarget;
+        const formData = new FormData(form);
+
         setLoading(true);
+        setSuccessMessage("");
+        setErrorMessage("");
 
         try {
-            const form = event.currentTarget;
-            const formData = new FormData(form);
-
             const data = {
-                name: formData.get("name"),
-                email: formData.get("email"),
-                phone: formData.get("phone"),
-                message: formData.get("message"),
+                name: String(formData.get("name") || "").trim(),
+                email: String(formData.get("email") || "").trim(),
+                mobile: String(formData.get("phone") || "").replace(/\D/g, ""),
+                location: String(formData.get("location") || "").trim(),
+                message: String(formData.get("message") || "").trim(),
+                enquiryType: "general-enquiry",
+                source: "contact-us-form",
+                urgency: "normal",
             };
 
-            console.log(data);
+            const response = await fetch(
+                "https://api.vathala.com/general/create",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Accept: "application/json",
+                    },
+                    body: JSON.stringify(data),
+                }
+            );
 
-            // Connect your API here.
-            //
-            // await fetch("/api/contact", {
-            //   method: "POST",
-            //   headers: {
-            //     "Content-Type": "application/json",
-            //   },
-            //   body: JSON.stringify(data),
-            // });
+            const result = await response.json().catch(() => null);
+
+            if (!response.ok) {
+                throw new Error(
+                    result?.message ||
+                    result?.error ||
+                    `Request failed (${response.status}). Please try again.`
+                );
+            }
+
+            setSuccessMessage(
+                result?.message ||
+                "Thank you! Your enquiry has been submitted successfully."
+            );
 
             form.reset();
-        } catch (error) {
-            console.error("Contact form error:", error);
+        } catch (error: unknown) {
+            console.error("Contact form submission error:", error);
+
+            setErrorMessage(
+                error instanceof Error
+                    ? error.message
+                    : "Unable to submit your enquiry. Please try again."
+            );
         } finally {
             setLoading(false);
         }
@@ -195,52 +226,90 @@ function ContactForm() {
             </div>
 
             <p className="contact-form-description">
-                Fill in the details below and our care team will reach out to you
-                promptly.
+                Fill in the details below and our care team will reach out to you promptly.
             </p>
+
+            {successMessage && (
+                <p
+                    role="status"
+                    aria-live="polite"
+                    className="mb-4 rounded-lg bg-green-50 p-3 text-sm text-green-700"
+                >
+                    {successMessage}
+                </p>
+            )}
+
+            {errorMessage && (
+                <p
+                    role="alert"
+                    aria-live="assertive"
+                    className="mb-4 rounded-lg bg-red-50 p-3 text-sm text-red-700"
+                >
+                    {errorMessage}
+                </p>
+            )}
 
             <form onSubmit={handleSubmit} className="contact-form">
                 <label className="contact-input">
                     <span className="input-icon">♙</span>
-
                     <input
                         type="text"
                         name="name"
                         placeholder="Enter your full name"
+                        autoComplete="name"
+                        maxLength={100}
                         required
+                        disabled={loading}
                     />
                 </label>
 
                 <label className="contact-input">
                     <span className="input-icon">✉</span>
-
                     <input
                         type="email"
                         name="email"
                         placeholder="Enter your email address"
+                        autoComplete="email"
                         required
+                        disabled={loading}
                     />
                 </label>
 
                 <label className="contact-input">
                     <span className="input-icon">⌕</span>
-
                     <input
                         type="tel"
                         name="phone"
                         placeholder="+91 Enter your phone number"
+                        autoComplete="tel"
+                        maxLength={20}
                         required
+                        disabled={loading}
+                    />
+                </label>
+
+                <label className="contact-input">
+                    <span className="input-icon">⌖</span>
+                    <input
+                        type="text"
+                        name="location"
+                        placeholder="Enter your city or location"
+                        autoComplete="address-level2"
+                        maxLength={250}
+                        required
+                        disabled={loading}
                     />
                 </label>
 
                 <label className="contact-textarea">
                     <span className="input-icon">□</span>
-
                     <textarea
                         name="message"
                         placeholder="Tell us about your care needs..."
                         rows={4}
+                        maxLength={2000}
                         required
+                        disabled={loading}
                     />
                 </label>
 
@@ -276,8 +345,8 @@ const data = {
 export default function Contact() {
     return (
         <main className="contact-page">
-            <Navbar/>
-            
+            <Navbar />
+
             {/* <section className="contact-hero">
         <Image
           src="/assets/contact-banner.webp"
