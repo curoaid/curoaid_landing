@@ -19,6 +19,7 @@ import {
   homeHowToBook,
   homeWhyChoose,
 } from "./components/home/homehowtobook";
+import InstagramReels from "./components/instareels/InstgramReels";
 
 const API_URL = "https://api.vathala.com/users/getHomeFaq";
 
@@ -91,6 +92,7 @@ export default function Home() {
         <HowToBookSection {...homeHowToBook} />
 
         <WhyChooseSection {...homeWhyChoose} />
+        <InstagramReels />
 
         <TestimonialsSection />
 
