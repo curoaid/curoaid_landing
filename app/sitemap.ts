@@ -9,7 +9,7 @@ const services = [
     { slug: "physiotherapy-at-home" },
     { slug: "wound-care-at-home" },
     { slug: "elder-care-at-home" },
-    { slug: "veterinary-doctor-at-home" },
+    { slug: "veterinary-doctor-home-visit" },
     { slug: "yoga-at-home" },
     { slug: "nri-elder-care" },
     { slug: "medical-equipment-rental-sale" },
