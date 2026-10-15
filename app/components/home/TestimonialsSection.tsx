@@ -151,14 +151,16 @@ export default function TestimonialsSection() {
               key={`${testimonial.name}-${currentPage}-${index}`}
               className="animate-testimonial-in rounded-xl border border-black/5 bg-[rgba(207,244,255,0.26)] p-6 shadow-md"
             >
-              <Image
+              {/* <Image
                 src={imgStars}
                 alt="5 star rating"
                 width={100}
                 height={20}
                 className="mb-4 h-5 w-auto object-contain"
-              />
-
+              /> */}
+              <div className="testimonial-stars">
+                ★★★★★
+              </div>
               <div className="mb-4 flex items-center gap-3">
                 <Image
                   src={imgGroup43}
