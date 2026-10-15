@@ -14,6 +14,7 @@ const services = [
     { slug: "nri-elder-care" },
     { slug: "medical-equipment-rental-sale" },
     { slug: "blood-test-at-home" },
+     { slug: "home-medicine-delivery" },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -27,7 +28,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 1.0,
         },
         {
-            url: `${BASE_URL}/about`,
+            url: `${BASE_URL}/about-us`,
+            lastModified: currentDate,
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
+        {
+            url: `${BASE_URL}/our-team`,
             lastModified: currentDate,
             changeFrequency: "monthly",
             priority: 0.8,

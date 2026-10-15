@@ -55,7 +55,7 @@ function ContactInfo() {
                     className="contact-detail"
                 >
                     <MessageCircle size={20} />
-                    <span>9150064364</span>
+                    <span>8925997198</span>
                 </a>
             </div>
 
