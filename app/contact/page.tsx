@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
-import Contact from "../components/contact/contact";
+import Contact from "@/app/components/contact/contact";
+import JsonLd from "../components/seo/JsonLd";
+import { createPageSchema } from "@/lib/seo-schema";
 
 
 export const metadata: Metadata = {
@@ -54,7 +56,21 @@ export const metadata: Metadata = {
     follow: true,
   },
 };
-
+const schema = createPageSchema({
+  name: "Contact CuroAid",
+  path: "contact",
+  description: "Contact CuroAid for information about our services.",
+  type: "ContactPage",
+});
 export default function ContactPage() {
-  return <Contact />;
+  return (
+
+
+    <>
+      <JsonLd data={schema} />
+
+      <Contact />
+    </>
+  )
+
 }

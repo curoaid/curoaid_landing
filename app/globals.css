@@ -2323,3 +2323,14 @@ a {
     font-size: 19px;
   }
 }
+.field-error {
+  color: #dc2626;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  margin: -0.5rem 0 0.75rem;
+}
+
+.contact-input[aria-invalid="true"],
+.contact-textarea[aria-invalid="true"] {
+  border: 1px solid #dc2626;
+}

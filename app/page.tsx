@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import CuroAidHero from "./components/home/CuroAidHero";
 import Navbar from "./components/home/Navbar";
 import WhoWeAreSection from "./components/home/WhoWeAreSection";
-import ServicesSection from "./components/home/ServiceSection";
+import ServiceSection from "./components/home/ServiceSection";
 import HowToBookSection from "./components/home/HowToBookSection";
 import WhyChooseSection from "./components/home/WhyChooseSection";
 import TestimonialsSection from "./components/home/TestimonialsSection";
@@ -20,6 +20,8 @@ import {
   homeWhyChoose,
 } from "./components/home/homehowtobook";
 import InstagramReels from "./components/instareels/InstgramReels";
+import { createPageSchema } from "@/lib/seo-schema";
+import JsonLd from "./components/seo/JsonLd";
 
 const API_URL = "https://api.vathala.com/users/getHomeFaq";
 
@@ -77,18 +79,23 @@ export default function Home() {
 
     fetchHomeFAQ();
   }, []);
-
+  const schema = createPageSchema({
+    name: "CuroAid – Healthcare at Home",
+    path: "/",
+    description:
+      "Home doctor visits, nursing, physiotherapy, elder care and other healthcare services.",
+  });
   return (
     <div className="bg-white min-h-screen w-full">
       <main>
+        <JsonLd data={schema} />
         <Navbar />
 
         <CuroAidHero />
 
         <WhoWeAreSection />
 
-        <ServicesSection />
-
+        <ServiceSection />
         <HowToBookSection {...homeHowToBook} />
 
         <WhyChooseSection {...homeWhyChoose} />

@@ -126,8 +126,8 @@ export default function BookingModal({
       if (!response.ok) {
         throw new Error(
           result?.message ||
-            result?.error ||
-            `Booking failed(${ response.status }).Please try again.`
+          result?.error ||
+          `Booking failed(${response.status}).Please try again.`
         );
       }
 
@@ -258,7 +258,7 @@ export default function BookingModal({
             </h2>
 
             <p className="modal-sub">
-              Tell us what you need — we'll take it from here.
+              Tell us what you need - we'll take it from here.
             </p>
 
             <form onSubmit={handleBookingSubmit}>
@@ -309,18 +309,29 @@ export default function BookingModal({
                   Mobile number <span aria-hidden="true">*</span>
                 </label>
 
-                <input
-                  id="phone"
-                  name="phone"
-                  className="form-input"
-                  type="tel"
-                  placeholder="+91 98765 43210"
-                  maxLength={20}
-                  autoComplete="tel"
-                  required
-                  disabled={isSubmitting}
-                />
+                <div className="phone-input-wrapper">
+
+                  <input
+                    id="phone"
+                    name="phone"
+                    className="form-input"
+                    type="tel"
+                    placeholder="98765 43210"
+                    inputMode="numeric"
+                    autoComplete="tel-national"
+                    pattern="[0-9]{10}"
+                    minLength={10}
+                    maxLength={10}
+                    required
+                    disabled={isSubmitting}
+                    onInput={(e) => {
+                      const input = e.currentTarget;
+                      input.value = input.value.replace(/\D/g, "").slice(0, 10);
+                    }}
+                  />
+                </div>
               </div>
+
 
               <div className="form-group">
                 <label className="form-label" htmlFor="location">

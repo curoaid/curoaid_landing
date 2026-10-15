@@ -68,7 +68,8 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { BookingProvider } from "./components/booking/bookingprovider";
 import { imgDoctorAtHome } from "@/lib/assets";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import SiteSchema from "./components/seo/SiteSchema";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -121,10 +122,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.variable} font-sans`}>
+        <SiteSchema/>
         <BookingProvider>
 
           {children}
         </BookingProvider>
+        <GoogleTagManager gtmId="GTM-KGZ93M4P" />
         <GoogleAnalytics gaId="G-H7NWGY6RRY" />
       </body>
     </html>

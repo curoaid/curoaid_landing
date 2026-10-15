@@ -4,6 +4,8 @@ import { aboutData } from "../components/about/about-us";
 import AboutPage1 from "../components/about/Aboutpage";
 import Footer from "../components/home/Footer";
 import Navbar from "../components/home/Navbar";
+import JsonLd from "../components/seo/JsonLd";
+import { createPageSchema } from "@/lib/seo-schema";
 
 export const metadata: Metadata = {
     title: "About CuroAid | Trusted Home Healthcare Services",
@@ -47,10 +49,16 @@ export const metadata: Metadata = {
         follow: true,
     },
 };
-
+const schema = createPageSchema({
+    name: "About CuroAid",
+    path: "about-us",
+    description: "Learn about CuroAid and its home healthcare services.",
+    type: "AboutPage",
+});
 export default function AboutPage() {
     return (
         <>
+            <JsonLd data={schema} />
             <Navbar />
             <AboutPage1 data={aboutData} />
             <Footer />

@@ -5,7 +5,10 @@ import { imgDoctorAtHome } from "@/lib/assets";
 
 
 import type { Metadata } from "next";
-
+import JsonLd from "../components/seo/JsonLd";
+import { createPageSchema } from "@/lib/seo-schema";
+const BASE_URL = "https://curoaid.com";
+const PAGE_URL = `${BASE_URL}/doctor-at-home`;
 export const metadata: Metadata = {
   title: "Doctor at Home | Book a Home Visit Doctor – CuroAid",
 
@@ -38,8 +41,19 @@ export const metadata: Metadata = {
     ],
   },
 };
+
+const schema = createPageSchema({
+  name: "Doctor at Home",
+  path: "doctor-at-home",
+  description:
+    "Home doctor visits and healthcare support provided through CuroAid.",
+});
 export default function DoctorAtHomePage() {
   return (
-    <HomeDoctorContent />
+    <>
+
+      <JsonLd data={schema} />
+      <HomeDoctorContent />
+    </>
   );
 }

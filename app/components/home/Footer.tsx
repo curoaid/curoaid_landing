@@ -28,8 +28,8 @@ const quickLinks = [
 const contactDetails = [
   {
     icon:imgContact ,
-    label: "+91 9150064364",
-    href: "tel:+919150064364",
+    label: "+91 8925997198",
+    href: "tel:+918925997198",
   },
   {
     icon: imgEmail,

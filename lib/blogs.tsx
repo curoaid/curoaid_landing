@@ -1,9 +1,24 @@
 import { API_BASE_URL } from "@/lib/api";
 
+
 export type BlogFAQ = {
-    _id?: string;
     question: string;
     answer: string;
+};
+
+export type BlogHowToStep = {
+    name?: string;
+    text?: string;
+    image?: string;
+};
+
+export type BlogRatingSchema = {
+    name: string;
+    description?: string;
+    ratingCount: number;
+    ratingValue?: number;
+    bestRating?: number;
+    worstRating?: number;
 };
 
 export type Blog = {
@@ -15,14 +30,20 @@ export type Blog = {
     date: string;
     category: string;
 
+    createdAt?: string;
+    updatedAt?: string;
+
     metaTitle?: string;
     metaDescription?: string;
     metaKeywords?: string;
 
     faqList?: BlogFAQ[];
+    howToSteps?: BlogHowToStep[];
+    ratingSchema?: BlogRatingSchema;
 
     isActive?: boolean;
 };
+
 
 /* =========================================================
    GET ALL BLOGS
