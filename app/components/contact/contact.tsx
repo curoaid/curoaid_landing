@@ -49,7 +49,7 @@ function ContactInfo() {
                 </div>
 
                 <a
-                    href="https://wa.me/919150064364"
+                    href="https://wa.me/918925997198"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="contact-detail"
