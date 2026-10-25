@@ -3,7 +3,7 @@ import HomeNursingContent from "@/app/components/services/HomeNursingContent";
 import { imgHomeNursing } from "@/lib/assets";
 
 export const metadata: Metadata = {
-    title: "Home Nursing Services | Professional Home Care – CuroAid",
+    title: "Home Nursing Services | Professional Home Care ",
 
     description:
         "Get reliable home nursing services with CuroAid. Receive professional nursing care, medication assistance, wound care and personalised support in the comfort of your home.",

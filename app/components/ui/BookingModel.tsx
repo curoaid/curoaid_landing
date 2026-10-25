@@ -22,6 +22,7 @@ const SERVICES = [
   { key: "nri-care", name: "NRI Patient Care", enquiryType: "nri-care" },
   { key: "equipment", name: "Hospital Equipment", enquiryType: "hospital-equipment" },
   { key: "renal-test", name: "Renal Blood Test", enquiryType: "renal-test" },
+  { key: "medicine-delivery", name: "Medicine Delivery", enquirtType: "medicine-delivery" }
 ];
 
 export default function BookingModal({

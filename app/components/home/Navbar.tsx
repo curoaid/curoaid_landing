@@ -446,11 +446,17 @@ export default function Navbar() {
                     >
                         Team
                     </Link>
+                     <Link
+                        href="/contact"
+                        className="text-[16px] font-medium text-white transition-colors hover:text-white/80"
+                    >
+                        Contact Us
+                    </Link>
                 </nav>
 
                 {/* Desktop Contact */}
-                <Link
-                    href="/contact"
+                <div
+                    
                     className="hidden items-center justify-center md:flex"
                 >
                     <GradientButton
@@ -458,7 +464,7 @@ export default function Navbar() {
                         label="Book Now"
                         onClick={() => openBooking()}
                     />
-                </Link>
+                </div>
 
                 {/* Mobile Menu Button */}
                 <div className="fixed right-3 top-0 z-[100] flex h-[72px] items-center justify-end sm:right-5 md:hidden">
@@ -560,6 +566,15 @@ export default function Navbar() {
                         >
                             About Us
                         </Link>
+                         <Link
+                            href="/contact"
+                            role="menuitem"
+                            onClick={closeMobileMenu}
+                            className="flex min-h-[44px] items-center text-[16px] font-medium leading-6 text-[#3f4847] transition-colors hover:text-[#4cc6f0] sm:text-[17px]"
+                        >
+                            Contact Us
+                        </Link>
+
 
                         {/* Contact */}
                         <div
@@ -569,7 +584,7 @@ export default function Navbar() {
                             className="flex items-center text-[16px] font-medium leading-6 text-[#3f4847] transition-colors hover:text-[#4cc6f0]"
                         >
                             <GradientButton
-                                className="px-4 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm"
+                                className="px-4 py-2 text-xs sm:px-5 sm:py-2 sm:text-sm"
                                 label="Book Now"
                             />
                         </div>

@@ -256,6 +256,10 @@ export const medicineImage = `${assetPathPrefix}/medicineImage.webp`;
 export const medicineBannerImage = `${assetPathPrefix}/medicineBannerImage.webp`;
 
 
+export const enquirybanner = `${assetPathPrefix}/curoaid-home-care.webp`;
+
+
+
 
 
 

@@ -3,7 +3,7 @@ import MedicalEquipmentContent from "@/app/components/services/MedicalEquipmentC
 import { medicalEquipmentImage } from "@/lib/assets";
 
 export const metadata: Metadata = {
-  title: "Medical Equipment Rental & Sale | CuroAid",
+  title: "Medical Equipment Rental & Sale",
 
   description:
     "Rent or buy medical equipment with CuroAid. Find reliable healthcare equipment for home use, including mobility aids and essential medical devices, with convenient service and support.",

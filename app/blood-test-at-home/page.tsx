@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import BloodTestContent from "@/app/components/services/BloodTestContent";
 
 export const metadata: Metadata = {
-    title: "Blood Test at Home | Convenient Lab Testing – CuroAid",
+    title: "Blood Test at Home | Convenient Lab Testing",
 
     description:
         "Book a blood test at home with CuroAid. Get convenient sample collection, reliable laboratory testing and hassle-free healthcare services from the comfort of your home.",

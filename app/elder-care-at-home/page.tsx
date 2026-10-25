@@ -3,7 +3,7 @@ import ElderCareContent from "@/app/components/services/ElderCareContent";
 import { elderCareImage } from "@/lib/assets";
 
 export const metadata: Metadata = {
-    title: "Elder Care Services at Home | CuroAid",
+    title: "Elder Care Services at Home",
 
     description:
         "Compassionate and reliable elder care services at home for senior citizens, including daily assistance, companionship, mobility support and healthcare coordination with CuroAid.",

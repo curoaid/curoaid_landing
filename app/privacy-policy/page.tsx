@@ -2,29 +2,29 @@ import type { Metadata } from "next";
 import LegalPage from "@/app/components/legalpage/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | CuroAid",
+  title: "Privacy Policy ",
   description:
-    "Read the Terms & Conditions governing the use of CuroAid healthcare services.",
+    "Read the Privacy Policy governing the use of CuroAid healthcare services.",
 };
 
-export default function TermsAndConditionsPage() {
+export default function PrivacyPolicyPage() {
   return (
     <LegalPage
       title="Privacy Policy"
       updatedDate="28 September 2026"
-      intro="Please read these Terms & Conditions carefully before using the CuroAid website and services."
+      intro="Please read these Privacy Policy terms carefully before using the CuroAid website and services."
     >
       <h2>1. Introduction</h2>
 
       <p>
-        Welcome to CuroAid. These Terms & Conditions govern your access to
+        Welcome to CuroAid. These Privacy Policy terms govern your access to
         and use of our website, applications, products and healthcare
         services.
       </p>
 
       <p>
         By accessing or using our services, you agree to be bound by these
-        Terms & Conditions. If you do not agree with any part of these
+        Privacy Policy terms. If you do not agree with any part of these
         terms, please discontinue use of our services.
       </p>
 
@@ -134,7 +134,7 @@ export default function TermsAndConditionsPage() {
       <h2>12. Contact Us</h2>
 
       <p>
-        If you have questions regarding these Terms & Conditions, please
+        If you have questions regarding these Privacy Policy terms, please
         contact the CuroAid team through our official contact channels.
       </p>
     </LegalPage>

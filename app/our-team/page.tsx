@@ -6,7 +6,7 @@ import { ourTeamData } from "../components/Team/OurTeamData";
 import OurTeamPage from "../components/Team/OurTeamPage";
 
 export const metadata: Metadata = {
-    title: "Our Team | CuroAid",
+    title: "Our Team",
     description:
         "Meet the dedicated healthcare professionals and care team behind CuroAid, committed to providing trusted healthcare services at home.",
 

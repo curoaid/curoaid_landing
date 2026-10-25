@@ -10,7 +10,7 @@ import { createPageSchema } from "@/lib/seo-schema";
 const BASE_URL = "https://curoaid.com";
 const PAGE_URL = `${BASE_URL}/doctor-at-home`;
 export const metadata: Metadata = {
-  title: "Doctor at Home | Book a Home Visit Doctor – CuroAid",
+  title: "Doctor at Home | Book a Home Visit Doctor",
 
   description:
     "Need a doctor at home? CuroAid connects you with professional doctors for convenient home visits, personalised medical care and healthcare support at home.",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    title: "Doctor at Home | CuroAid",
+    title: "Doctor at Home ",
 
     description:
       "Professional doctor consultation and medical care delivered to your doorstep.",

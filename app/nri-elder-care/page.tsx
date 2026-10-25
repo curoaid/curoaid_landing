@@ -3,7 +3,7 @@ import NriElderCareContent from "@/app/components/services/NriElderCareContent";
 import { nriElderCareImage } from "@/lib/assets";
 
 export const metadata: Metadata = {
-  title: "NRI Elder Care Services in India | CuroAid",
+  title: "NRI Elder Care Services in India",
 
   description:
     "Stay connected to your parents' well-being from abroad with CuroAid NRI elder care services. Get trusted elderly care, medical assistance and personalised support for your loved ones in India.",
