@@ -22,6 +22,7 @@ import {
 import InstagramReels from "./components/instareels/InstgramReels";
 import { createPageSchema } from "@/lib/seo-schema";
 import JsonLd from "./components/seo/JsonLd";
+import BookingModal from "./components/ui/BookingModel";
 
 const API_URL = "https://api.vathala.com/users/getHomeFaq";
 
@@ -45,6 +46,24 @@ const defaultFAQ: HomeFAQ = {
 
 export default function Home() {
   const [homeFAQ, setHomeFAQ] = useState<HomeFAQ>(defaultFAQ);
+  const [isOpen, setIsOpen] = useState(false);
+  const [popupCount, setPopupCount] = useState(0);
+
+
+  useEffect(() => {
+    if (popupCount >= 2 || isOpen) return;
+
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+      setPopupCount((count) => count + 1);
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, [popupCount, isOpen]);
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
 
   useEffect(() => {
     const fetchHomeFAQ = async () => {
@@ -110,6 +129,13 @@ export default function Home() {
         <FAQSection {...homeFAQ} />
 
         <Footer />
+        {
+          isOpen && (
+            <BookingModal isOpen={isOpen}
+              onClose={handleClose}
+              defaultService={undefined} />
+          )
+        }
       </main>
     </div>
   );

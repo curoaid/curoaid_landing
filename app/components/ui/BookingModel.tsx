@@ -17,12 +17,12 @@ const SERVICES = [
   { key: "wound-care", name: "Wound Care Service", enquiryType: "wound-care" },
   { key: "eldercare", name: "Eldercare", enquiryType: "eldercare" },
   { key: "veterinary", name: "Veterinary", enquiryType: "veterinary" },
+  { key: "medicine-delivery", name: "Medicine Delivery Service ", enquirtType: "medicine-delivery" },
   { key: "physiotherapy", name: "Physiotherapy", enquiryType: "physiotherapy" },
   { key: "yoga", name: "Yoga", enquiryType: "yoga" },
   { key: "nri-care", name: "NRI Patient Care", enquiryType: "nri-care" },
   { key: "equipment", name: "Hospital Equipment", enquiryType: "hospital-equipment" },
-  { key: "renal-test", name: "Renal Blood Test", enquiryType: "renal-test" },
-  { key: "medicine-delivery", name: "Medicine Delivery", enquirtType: "medicine-delivery" }
+  { key: "blood-test", name: "Renal Blood Test", enquiryType: "renal-test" },
 ];
 
 export default function BookingModal({

@@ -258,6 +258,10 @@ export const medicineBannerImage = `${assetPathPrefix}/medicineBannerImage.webp`
 
 export const enquirybanner = `${assetPathPrefix}/curoaid-home-care.webp`;
 
+export const whatsappicon = `${assetPathPrefix}/glassywhatsapp.png`;
+export const callicon = `${assetPathPrefix}/GlossyCall.png`;
+
+
 
 
 
