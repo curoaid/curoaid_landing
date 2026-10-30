@@ -414,13 +414,13 @@ export default function BlogDetailsPage({
                 CONSULTATION
             ================================================= */}
 
-            <section className="px-4 py-8 sm:px-6 lg:px-8 lg:py-12">
+            {/* <section className="px-4 py-8 sm:px-6 lg:px-8 lg:py-12"> */}
 
-                <div className="mx-auto grid max-w-[1130px] grid-cols-1 gap-8 rounded-[13px] bg-gradient-to-r from-[#effcff] to-[#f1faef] p-6 sm:p-8 lg:grid-cols-2 lg:p-10">
+                {/* <div className="mx-auto grid max-w-[1130px] grid-cols-1 gap-8 rounded-[13px] bg-gradient-to-r from-[#effcff] to-[#f1faef] p-6 sm:p-8 lg:grid-cols-2 lg:p-10"> */}
 
                     {/* LEFT */}
 
-                    <div>
+                    {/* <div>
 
                         <div className="flex items-center gap-2 text-[9px] font-semibold text-[#70c965]">
                             <span className="rounded bg-[#dff8df] px-2 py-1">
@@ -483,11 +483,11 @@ export default function BlogDetailsPage({
 
                         </div>
 
-                    </div>
+                    </div> */}
 
                     {/* RIGHT */}
 
-                    <form className="space-y-3">
+                    {/* <form className="space-y-3">
 
                         <input
                             type="text"
@@ -526,9 +526,9 @@ export default function BlogDetailsPage({
 
                     </form>
 
-                </div>
+                </div> */}
 
-            </section>
+            {/* </section> */}
 
             {/* =================================================
                 FOOTER

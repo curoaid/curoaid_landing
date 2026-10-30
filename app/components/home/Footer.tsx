@@ -227,7 +227,7 @@ export default function Footer() {
           </p>
 
           {/* Ownership */}
-          <p className="text-sm font-semibold text-[#bd555b] lg:text-center">
+          <p className="text-sm font-semibold  lg:text-center">
             CuroAid is owned and operated by Muniah Technologies.
           </p>
 

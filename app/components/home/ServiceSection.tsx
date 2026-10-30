@@ -14,6 +14,8 @@ import {
     veterinaryImage,
     yogaImage,
     medicalEquipmentImage,
+    medicineImage,
+    medicineBannerImage,
 } from "@/lib/assets";
 
 const services = [
@@ -47,7 +49,7 @@ const services = [
             "Expert wound care and dressing services to support safe and effective healing at home.",
         image: imgWoundCare,
         icon: imgPhysioIcon,
-        link: "/wound-care--at-home",
+        link: "/wound-care-at-home",
     },
     {
         title: "ELDER CARE",
@@ -63,7 +65,7 @@ const services = [
             "Convenient veterinary consultation and healthcare services for your pets at home.",
         image: veterinaryImage,
         icon: imgPhysioIcon,
-        link: "/veterinary-doctor-at-home",
+        link: "/veterinary-doctor-home-visit",
     },
     {
         title: "YOGA AT HOME",
@@ -96,6 +98,14 @@ const services = [
         image: bloodTestImage,
         icon: imgPhysioIcon,
         link: "/blood-test-at-home",
+    },
+    {
+        title: "MEDICINE DELIVERY SERVICES",
+        subtitle:
+            "Get your prescribed medicines delivered safely and conveniently to your doorstep, with reliable and timely delivery.",
+        image: medicineBannerImage,
+        icon: imgPhysioIcon,
+        link: "/home-medicine-delivery",
     },
 ];
 
