@@ -24,14 +24,14 @@ export const metadata: Metadata = {
     ],
 
     alternates: {
-        canonical: "https://curoaid.com/about",
+        canonical: "https://curoaid.com/about-us",
     },
 
     openGraph: {
         title: "About CuroAid | Trusted Home Healthcare Services",
         description:
             "Discover CuroAid's mission to make quality healthcare accessible through trusted and compassionate healthcare services at home.",
-        url: "https://curoaid.com/about",
+        url: "https://curoaid.com/about-us",
         siteName: "CuroAid",
         type: "website",
         locale: "en_IN",
