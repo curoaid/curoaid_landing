@@ -3,7 +3,7 @@
 
 import { whatsappicon, callicon } from "@/lib/assets";
 
-const phone = "919876543210";
+const phone = "8925997198";
 
 export default function FloatingContactButtons() {
     return (

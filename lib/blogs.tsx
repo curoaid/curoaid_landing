@@ -79,9 +79,7 @@ export async function getBlogs(): Promise<Blog[]> {
     const response = await fetch(
         `${API_BASE_URL}/users/getAllBlogs`,
         {
-            next: {
-                revalidate: 300,
-            },
+            cache: "no-store",
         }
     );
 
