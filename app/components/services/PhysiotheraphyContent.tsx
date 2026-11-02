@@ -1,5 +1,6 @@
 import { physiotherapyBanner, physiotherapyImage, physio1, physio2, physio3, physio4, physio5, physio6, physio7, physio8, physio9, tick, imgStepIcon1, imgStepIcon2, imgStepIcon3, imgStepIcon4, imgCtaBanner } from "@/lib/assets";
 import ServiceDesign, { ServiceData } from "./servicedetailspage/ServiceDesign";
+import { getServiceFaqs } from "@/lib/faq";
 
 const physiotherapyData: ServiceData = {
     hero: {
@@ -238,6 +239,26 @@ const physiotherapyData: ServiceData = {
     },
 };
 
-export default function PhysiotherapyContent() {
-    return <ServiceDesign data={physiotherapyData} />;
+// export default function PhysiotherapyContent() {
+//     return <ServiceDesign data={physiotherapyData} />;
+// }
+
+export default async function PhysiotherapyContent() {
+    const physiotherapyFaqs = await getServiceFaqs("Physiothraphy");
+
+    const updatedData: ServiceData = {
+        ...physiotherapyData,
+        faq: {
+            ...physiotherapyData.faq,
+            items:
+                physiotherapyFaqs.length > 0
+                    ? physiotherapyFaqs.map((faq) => ({
+                        question: faq.question,
+                        answer: faq.answer,
+                    }))
+                    : physiotherapyData.faq.items,
+        },
+    };
+
+    return <ServiceDesign data={updatedData} />;
 }

@@ -1,3 +1,4 @@
+import { getServiceFaqs } from "@/lib/faq";
 import ServiceDesign, { ServiceData } from "./servicedetailspage/ServiceDesign";
 
 import {
@@ -102,7 +103,7 @@ export const veterinaryCareData: ServiceData = {
         image: veterinary8,
         imageAlt: "Post treatment pet care",
       },
-     
+
     ],
   },
 
@@ -249,6 +250,22 @@ export const veterinaryCareData: ServiceData = {
   },
 };
 
-export default function VeterinaryCareContent() {
-  return <ServiceDesign data={veterinaryCareData} />;
+export default async function VeterinaryCareContent() {
+  const veterinaryFaqs = await getServiceFaqs("Veterinary");
+
+  const updatedData: ServiceData = {
+    ...veterinaryCareData,
+    faq: {
+      ...veterinaryCareData.faq,
+      items:
+        veterinaryFaqs.length > 0
+          ? veterinaryFaqs.map((faq) => ({
+            question: faq.question,
+            answer: faq.answer,
+          }))
+          : veterinaryCareData.faq.items,
+    },
+  };
+
+  return <ServiceDesign data={updatedData} />;
 }

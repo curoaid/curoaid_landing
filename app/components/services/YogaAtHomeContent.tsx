@@ -1,3 +1,4 @@
+import { getServiceFaqs } from "@/lib/faq";
 import ServiceDesign, { ServiceData } from "./servicedetailspage/ServiceDesign";
 
 import {
@@ -280,6 +281,22 @@ export const yogaAtHomeData: ServiceData = {
   },
 };
 
-export default function YogaAtHomeContent() {
-  return <ServiceDesign data={yogaAtHomeData} />;
+export default async function YogaAtHomeContent() {
+  const yogaFaqs = await getServiceFaqs("Yoga");
+
+  const updatedData: ServiceData = {
+    ...yogaAtHomeData,
+    faq: {
+      ...yogaAtHomeData.faq,
+      items:
+        yogaFaqs.length > 0
+          ? yogaFaqs.map((faq) => ({
+            question: faq.question,
+            answer: faq.answer,
+          }))
+          : yogaAtHomeData.faq.items,
+    },
+  };
+
+  return <ServiceDesign data={updatedData} />;
 }

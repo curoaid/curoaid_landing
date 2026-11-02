@@ -1,3 +1,4 @@
+import { getServiceFaqs } from "@/lib/faq";
 import ServiceDesign, { ServiceData } from "./servicedetailspage/ServiceDesign";
 
 import {
@@ -102,7 +103,7 @@ export const bloodTestData: ServiceData = {
                 image: blood8,
                 imageAlt: "Diagnostic blood testing",
             },
-           
+
         ],
     },
 
@@ -249,6 +250,27 @@ export const bloodTestData: ServiceData = {
     },
 };
 
-export default function BloodTestContent() {
-    return <ServiceDesign data={bloodTestData} />;
+export default async function BloodTestContent() {
+
+    // Fetch Blood Test FAQs from API
+    const bloodTestFaqs = await getServiceFaqs("Blood Test");
+
+    // Update only FAQ data
+    const updatedData: ServiceData = {
+        ...bloodTestData,
+
+        faq: {
+            ...bloodTestData.faq,
+
+            items:
+                bloodTestFaqs.length > 0
+                    ? bloodTestFaqs.map((faq) => ({
+                        question: faq.question,
+                        answer: faq.answer,
+                    }))
+                    : bloodTestData.faq.items,
+        },
+    };
+
+    return <ServiceDesign data={updatedData} />;
 }

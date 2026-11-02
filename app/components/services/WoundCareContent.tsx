@@ -1,3 +1,4 @@
+import { getServiceFaqs } from "@/lib/faq";
 import ServiceDesign, { ServiceData } from "./servicedetailspage/ServiceDesign";
 
 import {
@@ -256,6 +257,22 @@ export const woundCareData: ServiceData = {
   },
 };
 
-export default function WoundCareContent() {
-  return <ServiceDesign data={woundCareData} />;
+export default async function WoundCareContent() {
+  const woundCareFaqs = await getServiceFaqs("Woundcare");
+
+  const updatedData: ServiceData = {
+    ...woundCareData,
+    faq: {
+      ...woundCareData.faq,
+      items:
+        woundCareFaqs.length > 0
+          ? woundCareFaqs.map((faq) => ({
+            question: faq.question,
+            answer: faq.answer,
+          }))
+          : woundCareData.faq.items,
+    },
+  };
+
+  return <ServiceDesign data={updatedData} />;
 }

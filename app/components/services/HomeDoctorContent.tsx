@@ -10,6 +10,7 @@ import {
     imgCtaBanner
 } from "@/lib/assets";
 import ServiceDesign, { ServiceData } from "./servicedetailspage/ServiceDesign";
+import { getServiceFaqs } from "@/lib/faq";
 
 
 const doctorAtHomeData: ServiceData = {
@@ -239,6 +240,27 @@ const doctorAtHomeData: ServiceData = {
 };
 
 
-export default function HomeDoctor() {
-    return <ServiceDesign data={doctorAtHomeData} />;
+export default async function HomeDoctor() {
+
+    // Fetch service-based FAQ from API
+    const doctorFaqs = await getServiceFaqs("Home Doctor");
+
+    // Update FAQ dynamically
+    const updatedData: ServiceData = {
+        ...doctorAtHomeData,
+
+        faq: {
+            ...doctorAtHomeData.faq,
+
+            items:
+                doctorFaqs.length > 0
+                    ? doctorFaqs.map((faq) => ({
+                        question: faq.question,
+                        answer: faq.answer,
+                    }))
+                    : doctorAtHomeData.faq.items,
+        },
+    };
+
+    return <ServiceDesign data={updatedData} />;
 }

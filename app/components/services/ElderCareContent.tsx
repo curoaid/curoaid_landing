@@ -1,3 +1,4 @@
+import { getServiceFaqs } from "@/lib/faq";
 import ServiceDesign, { ServiceData } from "./servicedetailspage/ServiceDesign";
 
 import {
@@ -256,6 +257,22 @@ export const elderCareData: ServiceData = {
   },
 };
 
-export default function ElderCareContent() {
-  return <ServiceDesign data={elderCareData} />;
+export default async function ElderCareContent() {
+  const elderCareFaqs = await getServiceFaqs("Eldercare");
+
+  const updatedData: ServiceData = {
+    ...elderCareData,
+    faq: {
+      ...elderCareData.faq,
+      items:
+        elderCareFaqs.length > 0
+          ? elderCareFaqs.map((faq) => ({
+            question: faq.question,
+            answer: faq.answer,
+          }))
+          : elderCareData.faq.items,
+    },
+  };
+
+  return <ServiceDesign data={updatedData} />;
 }

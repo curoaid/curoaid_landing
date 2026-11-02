@@ -1,3 +1,4 @@
+import { getServiceFaqs } from "@/lib/faq";
 import ServiceDesign, {
     ServiceData,
 } from "./servicedetailspage/ServiceDesign";
@@ -277,6 +278,22 @@ const homeMedicineDeliveryData: ServiceData = {
     },
 };
 
-export default function HomeMedicineDelivery() {
-    return <ServiceDesign data={homeMedicineDeliveryData} />;
+export default async function HomeMedicineDelivery() {
+    const medicineFaqs = await getServiceFaqs("Medicine Delivery");
+
+    const updatedData: ServiceData = {
+        ...homeMedicineDeliveryData,
+        faq: {
+            ...homeMedicineDeliveryData.faq,
+            items:
+                medicineFaqs.length > 0
+                    ? medicineFaqs.map((faq) => ({
+                        question: faq.question,
+                        answer: faq.answer,
+                    }))
+                    : homeMedicineDeliveryData.faq.items,
+        },
+    };
+
+    return <ServiceDesign data={updatedData} />;
 }

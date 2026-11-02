@@ -1,3 +1,4 @@
+import { getServiceFaqs } from "@/lib/faq";
 import ServiceDesign, { ServiceData } from "./servicedetailspage/ServiceDesign";
 
 import {
@@ -102,7 +103,7 @@ export const nriElderCareData: ServiceData = {
         image: nri8,
         imageAlt: "Daily assistance for NRI parents",
       }
-      
+
     ],
   },
 
@@ -254,7 +255,22 @@ export const nriElderCareData: ServiceData = {
     ],
   },
 };
+export default async function NriElderCareContent() {
+  const nriFaqs = await getServiceFaqs("NRI Patient Care");
 
-export default function NriElderCareContent() {
-  return <ServiceDesign data={nriElderCareData} />;
+  const updatedData: ServiceData = {
+    ...nriElderCareData,
+    faq: {
+      ...nriElderCareData.faq,
+      items:
+        nriFaqs.length > 0
+          ? nriFaqs.map((faq) => ({
+            question: faq.question,
+            answer: faq.answer,
+          }))
+          : nriElderCareData.faq.items,
+    },
+  };
+
+  return <ServiceDesign data={updatedData} />;
 }

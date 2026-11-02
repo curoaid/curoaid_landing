@@ -6,6 +6,7 @@ import {
   imgStepIcon3,
   imgStepIcon4,
 } from "@/lib/assets";
+import { getServiceFaqs } from "@/lib/faq";
 
 const homeNursingData: ServiceData = {
   hero: {
@@ -251,6 +252,22 @@ const homeNursingData: ServiceData = {
   },
 };
 
-export default function HomeNursing() {
-  return <ServiceDesign data={homeNursingData} />;
+export default async function HomeNursing() {
+  const nursingFaqs = await getServiceFaqs("Nursingcare");
+
+  const updatedData: ServiceData = {
+    ...homeNursingData,
+    faq: {
+      ...homeNursingData.faq,
+      items:
+        nursingFaqs.length > 0
+          ? nursingFaqs.map((faq) => ({
+            question: faq.question,
+            answer: faq.answer,
+          }))
+          : homeNursingData.faq.items,
+    },
+  };
+
+  return <ServiceDesign data={updatedData} />;
 }

@@ -1,3 +1,4 @@
+import { getServiceFaqs } from "@/lib/faq";
 import ServiceDesign, { ServiceData } from "./servicedetailspage/ServiceDesign";
 
 import {
@@ -102,7 +103,7 @@ export const medicalEquipmentData: ServiceData = {
         image: equipment8,
         imageAlt: "Medical recovery equipment",
       }
-      
+
     ],
   },
 
@@ -254,6 +255,22 @@ export const medicalEquipmentData: ServiceData = {
   },
 };
 
-export default function MedicalEquipmentContent() {
-  return <ServiceDesign data={medicalEquipmentData} />;
+export default async function MedicalEquipmentContent() {
+  const equipmentFaqs = await getServiceFaqs("Medical Equipment");
+
+  const updatedData: ServiceData = {
+    ...medicalEquipmentData,
+    faq: {
+      ...medicalEquipmentData.faq,
+      items:
+        equipmentFaqs.length > 0
+          ? equipmentFaqs.map((faq) => ({
+            question: faq.question,
+            answer: faq.answer,
+          }))
+          : medicalEquipmentData.faq.items,
+    },
+  };
+
+  return <ServiceDesign data={updatedData} />;
 }
