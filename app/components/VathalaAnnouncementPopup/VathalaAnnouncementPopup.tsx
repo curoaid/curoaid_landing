@@ -133,11 +133,14 @@ export default function VathalaAnnouncementPopup() {
                     >
                         {/* Explore CuroAid */}
                     </Link>
-                    <GradientButton className="mt-5 block w-full rounded-xl
-            px-5 py-3 text-sm
-            font-semibold text-white transition
-           hover:shadow-lg
-            sm:mt-7 sm:py-3.5 sm:text-base" label="Explore CuroAid" onClick={(closePopup)} />
+                    <GradientButton
+                        className="mt-5 flex w-full items-center justify-center rounded-xl
+    px-5 py-3 text-center text-sm font-semibold text-white
+    transition hover:shadow-lg
+    sm:mt-7 sm:py-3.5 sm:text-base"
+                        label="Explore CuroAid"
+                        onClick={closePopup}
+                    />
                     {/* Continue Browsing */}
                     <button
                         type="button"
