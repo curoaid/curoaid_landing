@@ -182,7 +182,7 @@ export default function BlogDetailsPage({
 
             <section className="px-4 pt-6 sm:px-6 lg:px-8 lg:pt-8">
 
-                <div className="relative mx-auto h-[260px] max-w-[1130px] overflow-hidden rounded-[13px] sm:h-[350px] lg:h-[470px]">
+                {/* <div className="relative mx-auto h-[260px] max-w-[1130px] overflow-hidden rounded-[13px] sm:h-[350px] lg:h-[470px]">
 
                     <Image
                         src={blog.imageUrl}
@@ -190,9 +190,20 @@ export default function BlogDetailsPage({
                         fill
                         priority
                         sizes="(max-width: 1130px) 100vw, 1130px"
-                        className="object-cover"
+                        className="object-cover
+                        "
                     />
 
+                </div> */}
+                <div className="relative w-full aspect-[16/9] sm:aspect-[16/9] lg:aspect-[16/9] overflow-hidden rounded-xl">
+                    <Image
+                        src={blog.imageUrl}
+                        alt={blog.title}
+                        fill
+                        priority
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 100vw, 1130px"
+                        className="object-cover"
+                    />
                 </div>
 
             </section>
@@ -416,11 +427,11 @@ export default function BlogDetailsPage({
 
             {/* <section className="px-4 py-8 sm:px-6 lg:px-8 lg:py-12"> */}
 
-                {/* <div className="mx-auto grid max-w-[1130px] grid-cols-1 gap-8 rounded-[13px] bg-gradient-to-r from-[#effcff] to-[#f1faef] p-6 sm:p-8 lg:grid-cols-2 lg:p-10"> */}
+            {/* <div className="mx-auto grid max-w-[1130px] grid-cols-1 gap-8 rounded-[13px] bg-gradient-to-r from-[#effcff] to-[#f1faef] p-6 sm:p-8 lg:grid-cols-2 lg:p-10"> */}
 
-                    {/* LEFT */}
+            {/* LEFT */}
 
-                    {/* <div>
+            {/* <div>
 
                         <div className="flex items-center gap-2 text-[9px] font-semibold text-[#70c965]">
                             <span className="rounded bg-[#dff8df] px-2 py-1">
@@ -485,9 +496,9 @@ export default function BlogDetailsPage({
 
                     </div> */}
 
-                    {/* RIGHT */}
+            {/* RIGHT */}
 
-                    {/* <form className="space-y-3">
+            {/* <form className="space-y-3">
 
                         <input
                             type="text"
