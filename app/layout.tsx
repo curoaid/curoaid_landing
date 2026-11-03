@@ -10,6 +10,7 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import SiteSchema from "./components/seo/SiteSchema";
 import FloatingContactButtons from "./components/floating-buttons/Floatingbuttons";
 import Script from "next/script";
+import VathalaAnnouncementPopup from "./components/VathalaAnnouncementPopup/VathalaAnnouncementPopup";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -83,6 +84,7 @@ export default function RootLayout({
         <GoogleTagManager gtmId="GTM-KGZ93M4P" />
         <GoogleAnalytics gaId="G-H7NWGY6RRY" />
         <FloatingContactButtons />
+        <VathalaAnnouncementPopup/>
       </body>
     </html>
   );
