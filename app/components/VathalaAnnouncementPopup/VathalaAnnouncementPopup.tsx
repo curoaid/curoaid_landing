@@ -11,14 +11,22 @@ export default function VathalaAnnouncementPopup() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
+        const referrer = document.referrer;
+
+        // Check whether visitor came from Google
+        const isGoogleVisitor =
+            referrer && /(^|\.)google\./i.test(new URL(referrer).hostname);
+
         const hasSeenPopup = localStorage.getItem(STORAGE_KEY);
 
-        if (!hasSeenPopup) {
-            const timer = window.setTimeout(() => {
+        // Show for every Google referral,
+        // or for visitors who haven't seen the popup before.
+        if (isGoogleVisitor || !hasSeenPopup) {
+            const timer = setTimeout(() => {
                 setIsVisible(true);
             }, 800);
 
-            return () => window.clearTimeout(timer);
+            return () => clearTimeout(timer);
         }
     }, []);
 
