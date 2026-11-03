@@ -233,6 +233,7 @@ export const blogCTA = `${assetPathPrefix}/blogCTA.webp`;
 
 
 
+export const vathalalogo = `${assetPathPrefix}/vathala.svg`;
 
 export const aboutbanner = `${assetPathPrefix}/aboutbanner.webp`;
 
