@@ -1,7 +1,9 @@
 
 "use client";
 
+import { redirectToThankYou } from "@/lib/thank-you";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -34,6 +36,7 @@ export default function BookingModal({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     const matchingService = SERVICES.find(
@@ -135,6 +138,7 @@ export default function BookingModal({
       setSuccessMessage(
         "Your request has been submitted successfully. Our representative will reach out to you shortly."
       );
+      redirectToThankYou(router, selectedServiceData.name);
     } catch (error: unknown) {
       console.error("Booking submission error:", error);
 
