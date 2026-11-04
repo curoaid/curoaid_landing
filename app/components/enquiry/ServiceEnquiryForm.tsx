@@ -1,8 +1,9 @@
 "use client";
 
 import { EnquiryService } from "@/lib/enquiryServices";
+import { redirectToThankYou } from "@/lib/thank-you";
 import { useState, type FormEvent } from "react";
-
+import { useRouter } from "next/navigation";
 type Props = {
     service: EnquiryService;
     onSuccess: () => void;
@@ -32,7 +33,7 @@ export default function ServiceEnquiryForm({ service, onSuccess, }: Props) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
-
+    const router = useRouter();
     function updateField(field: keyof FormState, value: string) {
         setForm((previous) => ({ ...previous, [field]: value }));
         setError("");
@@ -87,6 +88,7 @@ export default function ServiceEnquiryForm({ service, onSuccess, }: Props) {
                 data?.message ||
                 "Thank you! Your enquiry has been submitted successfully."
             );
+            redirectToThankYou(router, service.title);
 
             setForm(initialForm);
             onSuccess();
