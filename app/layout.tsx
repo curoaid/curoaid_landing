@@ -11,6 +11,7 @@ import SiteSchema from "./components/seo/SiteSchema";
 import FloatingContactButtons from "./components/floating-buttons/Floatingbuttons";
 import Script from "next/script";
 import VathalaAnnouncementPopup from "./components/VathalaAnnouncementPopup/VathalaAnnouncementPopup";
+import PopupManager from "./components/popup-manager/PopupManager";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -67,6 +68,7 @@ export default function RootLayout({
         <BookingProvider>
 
           {children}
+          <PopupManager/>
         </BookingProvider>
         <Script
           id="microsoft-clarity"
