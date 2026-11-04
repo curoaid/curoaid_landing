@@ -256,7 +256,7 @@ export const nriElderCareData: ServiceData = {
   },
 };
 export default async function NriElderCareContent() {
-  const nriFaqs = await getServiceFaqs("NRI Patient Care");
+  const nriFaqs = await getServiceFaqs("NRI Elder Care");
 
   const updatedData: ServiceData = {
     ...nriElderCareData,

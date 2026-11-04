@@ -255,7 +255,7 @@ export default function BookingModal({
           /* BOOKING FORM */
           <>
             <h2 className="modal-title" id="booking-title">
-              Book a Visit Request
+              Book a Free Consulting
             </h2>
 
             <p className="modal-sub">
