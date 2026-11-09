@@ -84,13 +84,13 @@ export default function ThankYouPage() {
                             <h2 className="text-base sm:text-lg md:text-xl font-semibold text-gray-700 mb-3">
                                 Your enquiry has been submitted successfully.
                             </h2>
-
+                            {/* 
                             <p className="text-sm sm:text-base text-gray-500 leading-6 sm:leading-7 max-w-xl mx-auto">
                                 Thank you for choosing CuroAid. We have received
                                 your request, and our dedicated care team will
                                 contact you shortly to assist you with your
                                 healthcare needs.
-                            </p>
+                            </p> */}
 
                             {/* Divider */}
                             <div className="border-t border-gray-100 my-7 sm:my-10" />
@@ -153,7 +153,7 @@ export default function ThankYouPage() {
                                 </Link>
 
                                 <Link
-                                    href="/contact-us"
+                                    href="/contact"
                                     className="w-full sm:w-auto inline-flex items-center justify-center border-2 border-[#0B6B5A] text-[#0B6B5A] hover:bg-[#EAF6F0] font-semibold text-sm sm:text-base px-8 py-3 rounded-full transition-all duration-300"
                                 >
                                     Contact Us

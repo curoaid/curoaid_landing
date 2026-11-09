@@ -18,6 +18,8 @@ import {
     HeartHandshake,
 } from "lucide-react";
 import { enquirybanner } from "@/lib/assets";
+import { redirectToThankYou } from "@/lib/thank-you";
+import { useRouter } from "next/navigation";
 
 const services = [
     "Doctor at Home",
@@ -75,6 +77,7 @@ export default function EnquiryForm({ onSuccess }: EnquiryFormProps) {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [submitted, setSubmitted] = useState(false);
+    const router = useRouter();
 
     function updateField<K extends keyof FormValues>(
         field: K,
@@ -122,6 +125,8 @@ export default function EnquiryForm({ onSuccess }: EnquiryFormProps) {
             setTimeout(() => {
                 onSuccess();
             }, 1000);
+            router.push("/thank-you");
+            redirectToThankYou(router);
         } catch (err) {
             setError(
                 err instanceof Error
