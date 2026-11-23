@@ -54,7 +54,7 @@ export const imgFacebook = `https://vathala-bucket.s3.ap-south-1.amazonaws.com/1
 export const imgFAQArrow = `https://vathala-bucket.s3.ap-south-1.amazonaws.com/1795414997225/49fe1.png`;
 
 export const imgDoctorIcon = `https://vathala-bucket.s3.ap-south-1.amazonaws.com//4d0fa.svg`;
-export const imgPhysioIcon = `https://vathala-bucket.s3.ap-south-1.amazonaws.com//9f1c8.svg`;
+export const imgPhysioIcon = `${assetPathPrefix}/9f1c8.svg`;
 
 export const imgEllipseStep = `${assetPathPrefix}/94eca.svg`;
 
