@@ -37,11 +37,18 @@ export async function generateMetadata({
         };
     }
 
-    const title = blog.metaTitle || `${blog.title} | CuroAid`;
+    // const title = blog.metaTitle || `${blog.title} | CuroAid`;
+
+    // const description =
+    //     blog.metaDescription ||
+    //     "Healthcare information and expert guidance from CuroAid.";
+    const title =
+        blog.metaTitle?.replace(/VaThala/gi, "CuroAid").trim() ||
+        `${blog.title} | CuroAid`;
 
     const description =
-        blog.metaDescription ||
-        "Healthcare information and expert guidance from CuroAid.";
+        blog.metaDescription?.replace(/VaThala/gi, "CuroAid").trim() ||
+        "Explore expert home healthcare advice, wellness guidance and healthcare services with CuroAid.";
 
     return {
         title,

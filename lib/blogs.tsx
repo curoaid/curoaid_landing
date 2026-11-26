@@ -74,8 +74,10 @@ export type Blog = {
 //             blog.isActive !== false
 //     );
 // }
+
 export async function getBlogs(): Promise<Blog[]> {
     const start = Date.now();
+
     const response = await fetch(
         `${API_BASE_URL}/users/getAllBlogs`,
         {
@@ -96,16 +98,24 @@ export async function getBlogs(): Promise<Blog[]> {
     }
 
     const result = await response.json();
+
     console.log(
         "BLOG JSON PARSE TOTAL:",
         Date.now() - start,
         "ms"
     );
+
     if (!Array.isArray(result?.data)) {
         return [];
     }
 
-    return result.data.filter(
-        (blog: Blog) => blog.isActive !== false
-    );
+    return result.data.filter((blog: Blog) => {
+        const slug = blog?.slug;
+
+        return (
+            blog.isActive !== false &&
+            typeof slug === "string" &&
+            /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)
+        );
+    });
 }

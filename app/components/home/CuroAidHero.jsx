@@ -419,7 +419,9 @@ export default function CuroAidHero({
               </div>
               <div className="metric-details">
                 <span className="metric-value">Care Across</span>
-                <span className="metric-label">Chennai &amp; Beyond</span>
+                {/* <span className="metric-label">Chennai &amp; Beyond</span> */}
+                <span className="metric-label">Over All India </span>
+
               </div>
             </div>
           </div>
